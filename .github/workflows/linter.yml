@@ -1,0 +1,74 @@
+name: Linter
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Prettier
+        run: |
+          yarn format:check
+
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Eslint
+        run: |
+          yarn install
+          yarn eslint:check
+
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Stylelint
+        run: |
+          yarn install
+          yarn stylelint:check
+
+  webhint:
+    name: Webhint
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Webhint Report
+        run: |
+          yarn install
+          yarn webhint

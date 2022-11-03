@@ -8,13 +8,12 @@
     "webhint": "npx hint --telemetry=off .",
     "eslint": "npx eslint . --fix",
     "eslint:check": "npx eslint .",
-    "stylelint": "npx stylelint \"**/*.{css,scss}\" --fix",
-    "stylelint:check": "npx stylelint  \"**/*.{css,scss}\"",
-    "lint": "npx eslint '**/*.js' --fix; npx stylelint \"**/*.{css,scss}\" --fix",
-    "lint:check": "npx eslint '**/*.js'; npx stylelint  \"**/*.{css,scss}\""
+    "stylelint": "npx stylelint \"*/.{css,scss}\" --fix",
+    "stylelint:check": "npx stylelint  \"*/.{css,scss}\"",
+    "lint": "npx eslint '*/.js' --fix; npx stylelint \"*/.{css,scss}\" --fix",
+    "lint:check": "npx eslint '*/.js'; npx stylelint  \"*/.{css,scss}\""
   },
   "description": "A list of coding challenges with solution and test cases.",
-  "dependencies": {},
   "devDependencies": {
     "@babel/preset-env": "^7",
     "eslint": "^8",
@@ -23,7 +22,7 @@
     "eslint-config-prettier": "^8",
     "eslint-plugin-import": "^2",
     "eslint-plugin-prettier": "^4",
-    "hint": "^7",
+    "hint": "^2.0.0",
     "jest": "^29",
     "jest-extended": "^3",
     "prettier": "^2",
